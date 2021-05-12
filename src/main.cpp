@@ -49,9 +49,10 @@ void display(KnightTree* pTree, int n)
 	cout.flush();
 	if (pTree)
 	{ 
-		cout << setw(3) << setfill('0') << pTree->key;
-		cout << pTree->level; 
+
 		display(pTree->pLeftChild,++n);
+				cout << setw(3) << setfill('0') << pTree->key;
+		cout << pTree->level << " "; 
 		display(pTree->pRightChild,++n);
 	}	
 }
@@ -72,9 +73,22 @@ int main(int argc, char* argv[])
 	KnightTree* pFinalTree = NULL;     
 
 	ringsignList* pSarumanList = NULL;
+	// ringsignList* pSarumanList1 =new  ringsignList();
+	// ringsignList* pSarumanList2= new ringsignList();
+
+	// pSarumanList->nRingsign = 1;
+	// pSarumanList->pNext = pSarumanList1;
+
+	// pSarumanList1->nRingsign = 2;
+	// pSarumanList1->pNext = pSarumanList2;
+	
+	// pSarumanList2->nRingsign = 6;
+
 	readFile(f, pEvent);
 	pFinalTree = siege(pEvent,pSarumanList);
 	display(pFinalTree,0);
-   
+   delete(pSarumanList);
+//    delete(pSarumanList1);
+//    delete(pSarumanList2);
    return 0;
 }
